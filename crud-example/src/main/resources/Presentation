@@ -1,0 +1,7 @@
+Criando queries (buscas) com Spring Boot sem SQL!
+
+0) O que é Query?
+1) Relembrando Spring Data
+2) Interface Repository
+3) Criando queries através do nome dos métodos
+4) Próximos capítulos
