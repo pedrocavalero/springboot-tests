@@ -8,11 +8,11 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
+@Cacheable("testService")
 public class CachedTestService implements ITestService{
 
 	TestService testService;
 
-	@Cacheable("hello")
 	public String hello() {
 		return testService.hello();
 	}
