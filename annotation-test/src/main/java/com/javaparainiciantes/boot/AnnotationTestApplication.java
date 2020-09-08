@@ -25,7 +25,7 @@ public class AnnotationTestApplication {
 class Runner implements ApplicationRunner {
 	
 	@Autowired
-	@Qualifier("cachedTestService")
+	@Qualifier("timedTestService")
 	ITestService testService;
 	
 	@Override
