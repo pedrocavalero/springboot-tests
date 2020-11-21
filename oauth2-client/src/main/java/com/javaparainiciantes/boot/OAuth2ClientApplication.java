@@ -1,31 +1,33 @@
-package com.example.demo;
+package com.javaparainiciantes.boot;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import com.javaparainiciantes.boot.client.HelloRestClient;
+
+import lombok.AllArgsConstructor;
+
 @SpringBootApplication
-public class DemoRunnerApplication {
+public class OAuth2ClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoRunnerApplication.class, args);
+		SpringApplication.run(OAuth2ClientApplication.class, args);
 	}
-	
 
 }
 
+@AllArgsConstructor
 @Component
 class Runner implements ApplicationRunner {
 	
-	@Value("${hello:Hello from code}")
-	String hello;
+	HelloRestClient client;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("Propriedade hello2: " + hello);
+		client.getHello().subscribe(System.out::println);
 	}
 	
 }
