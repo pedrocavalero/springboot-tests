@@ -13,11 +13,14 @@
 package com.pedrocavalero.pix.client.api;
 
 import org.threeten.bp.OffsetDateTime;
+
+import com.pedrocavalero.pix.client.invoker.ApiClient;
 import com.pedrocavalero.pix.client.model.Problema;
 import com.pedrocavalero.pix.client.model.WebhookCompleto;
 import com.pedrocavalero.pix.client.model.WebhookSolicitado;
 import com.pedrocavalero.pix.client.model.WebhooksConsultados;
 import org.junit.Test;
+import org.junit.Before;
 import org.junit.Ignore;
 
 import java.util.ArrayList;
@@ -31,8 +34,18 @@ import java.util.Map;
 @Ignore
 public class WebhookApiTest {
 
-    private final WebhookApi api = new WebhookApi();
+    private WebhookApi api;
 
+    @Before
+    public void setup() {
+    	ApiClient client = new ApiClient(
+    			"Client_Id_xxx",
+    			"Client_Secret_xxx",
+    			"certificado.p12");
+		//client.setBasePath("https://api-pix.gerencianet.com.br/v2");
+		//client.setTokenPath("https://api-pix.gerencianet.com.br/oauth/token");
+    	api  = new WebhookApi(client);
+    }
     /**
      * Cancelar o webhook Pix.
      *

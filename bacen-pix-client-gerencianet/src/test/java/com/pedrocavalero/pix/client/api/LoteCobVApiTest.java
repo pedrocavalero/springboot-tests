@@ -12,11 +12,13 @@
 
 package com.pedrocavalero.pix.client.api;
 
+import com.pedrocavalero.pix.client.invoker.ApiClient;
 import com.pedrocavalero.pix.client.model.LoteCobVConsultado;
 import com.pedrocavalero.pix.client.model.LotesCobVConsultados;
 import org.threeten.bp.OffsetDateTime;
 import com.pedrocavalero.pix.client.model.Problema;
 import org.junit.Test;
+import org.junit.Before;
 import org.junit.Ignore;
 
 import java.util.ArrayList;
@@ -30,7 +32,18 @@ import java.util.Map;
 @Ignore
 public class LoteCobVApiTest {
 
-    private final LoteCobVApi api = new LoteCobVApi();
+    private LoteCobVApi api;
+    
+    @Before
+    public void setup() {
+    	ApiClient client = new ApiClient(
+    			"Client_Id_xxx",
+    			"Client_Secret_xxx",
+    			"certificado.p12");
+		//client.setBasePath("https://api-pix.gerencianet.com.br/v2");
+		//client.setTokenPath("https://api-pix.gerencianet.com.br/oauth/token");
+    	api = new LoteCobVApi(client);
+    }
 
     /**
      * Consultar lotes de cobranças com vencimento.

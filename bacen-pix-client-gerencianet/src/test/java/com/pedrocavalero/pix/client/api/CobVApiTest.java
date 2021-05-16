@@ -12,6 +12,7 @@
 
 package com.pedrocavalero.pix.client.api;
 
+import com.pedrocavalero.pix.client.invoker.ApiClient;
 import com.pedrocavalero.pix.client.model.CobVCompleta;
 import com.pedrocavalero.pix.client.model.CobVGerada;
 import com.pedrocavalero.pix.client.model.CobVRevisada;
@@ -20,6 +21,7 @@ import com.pedrocavalero.pix.client.model.CobsVConsultadas;
 import org.threeten.bp.OffsetDateTime;
 import com.pedrocavalero.pix.client.model.Problema;
 import org.junit.Test;
+import org.junit.Before;
 import org.junit.Ignore;
 
 import java.util.ArrayList;
@@ -33,7 +35,18 @@ import java.util.Map;
 @Ignore
 public class CobVApiTest {
 
-    private final CobVApi api = new CobVApi();
+    private CobVApi api;
+    
+    @Before
+    public void setup() {
+    	ApiClient client = new ApiClient(
+    			"Client_Id_xxx",
+    			"Client_Secret_xxx",
+    			"certificado.p12");
+		//client.setBasePath("https://api-pix.gerencianet.com.br/v2");
+		//client.setTokenPath("https://api-pix.gerencianet.com.br/oauth/token");
+    	api = new CobVApi(client);
+    }
 
     /**
      * Consultar lista de cobranças com vencimento.
