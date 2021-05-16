@@ -13,171 +13,169 @@
 package com.pedrocavalero.pix.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.pedrocavalero.pix.client.model.AbatimentoAplicado;
-import com.pedrocavalero.pix.client.model.JuroAplicado;
-import com.pedrocavalero.pix.client.model.MultaAplicada;
+
 import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * Valores monetários.
  */
 @Schema(description = "Valores monetários.")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-05-15T12:12:45.130232200-03:00[America/Sao_Paulo]")
 public class CobVValor {
-  @JsonProperty("original")
-  private String original = null;
+	@JsonProperty("original")
+	private String original = null;
 
-  @JsonProperty("multa")
-  private MultaAplicada multa = null;
+	@JsonProperty("multa")
+	private MultaAplicada multa = null;
 
-  @JsonProperty("juros")
-  private JuroAplicado juros = null;
+	@JsonProperty("juros")
+	private JuroAplicado juros = null;
 
-  @JsonProperty("abatimento")
-  private AbatimentoAplicado abatimento = null;
+	@JsonProperty("abatimento")
+	private AbatimentoAplicado abatimento = null;
 
-  @JsonProperty("desconto")
-  private AllOfCobVValorDesconto desconto = null;
+	@JsonProperty("desconto")
+	private DescontosAplicados desconto = null;
 
-  public CobVValor original(String original) {
-    this.original = original;
-    return this;
-  }
+	public CobVValor original(String original) {
+		this.original = original;
+		return this;
+	}
 
-   /**
-   * Valor original da cobrança.
-   * @return original
-  **/
-  @Schema(description = "Valor original da cobrança.")
-  public String getOriginal() {
-    return original;
-  }
+	/**
+	 * Valor original da cobrança.
+	 * 
+	 * @return original
+	 **/
+	@Schema(description = "Valor original da cobrança.")
+	public String getOriginal() {
+		return original;
+	}
 
-  public void setOriginal(String original) {
-    this.original = original;
-  }
+	public void setOriginal(String original) {
+		this.original = original;
+	}
 
-  public CobVValor multa(MultaAplicada multa) {
-    this.multa = multa;
-    return this;
-  }
+	public CobVValor multa(MultaAplicada multa) {
+		this.multa = multa;
+		return this;
+	}
 
-   /**
-   * Get multa
-   * @return multa
-  **/
-  @Schema(description = "")
-  public MultaAplicada getMulta() {
-    return multa;
-  }
+	/**
+	 * Get multa
+	 * 
+	 * @return multa
+	 **/
+	@Schema(description = "")
+	public MultaAplicada getMulta() {
+		return multa;
+	}
 
-  public void setMulta(MultaAplicada multa) {
-    this.multa = multa;
-  }
+	public void setMulta(MultaAplicada multa) {
+		this.multa = multa;
+	}
 
-  public CobVValor juros(JuroAplicado juros) {
-    this.juros = juros;
-    return this;
-  }
+	public CobVValor juros(JuroAplicado juros) {
+		this.juros = juros;
+		return this;
+	}
 
-   /**
-   * Get juros
-   * @return juros
-  **/
-  @Schema(description = "")
-  public JuroAplicado getJuros() {
-    return juros;
-  }
+	/**
+	 * Get juros
+	 * 
+	 * @return juros
+	 **/
+	@Schema(description = "")
+	public JuroAplicado getJuros() {
+		return juros;
+	}
 
-  public void setJuros(JuroAplicado juros) {
-    this.juros = juros;
-  }
+	public void setJuros(JuroAplicado juros) {
+		this.juros = juros;
+	}
 
-  public CobVValor abatimento(AbatimentoAplicado abatimento) {
-    this.abatimento = abatimento;
-    return this;
-  }
+	public CobVValor abatimento(AbatimentoAplicado abatimento) {
+		this.abatimento = abatimento;
+		return this;
+	}
 
-   /**
-   * Get abatimento
-   * @return abatimento
-  **/
-  @Schema(description = "")
-  public AbatimentoAplicado getAbatimento() {
-    return abatimento;
-  }
+	/**
+	 * Get abatimento
+	 * 
+	 * @return abatimento
+	 **/
+	@Schema(description = "")
+	public AbatimentoAplicado getAbatimento() {
+		return abatimento;
+	}
 
-  public void setAbatimento(AbatimentoAplicado abatimento) {
-    this.abatimento = abatimento;
-  }
+	public void setAbatimento(AbatimentoAplicado abatimento) {
+		this.abatimento = abatimento;
+	}
 
-  public CobVValor desconto(AllOfCobVValorDesconto desconto) {
-    this.desconto = desconto;
-    return this;
-  }
+	public CobVValor desconto(DescontosAplicados desconto) {
+		this.desconto = desconto;
+		return this;
+	}
 
-   /**
-   * Descontos aplicados à cobrança
-   * @return desconto
-  **/
-  @Schema(description = "Descontos aplicados à cobrança")
-  public AllOfCobVValorDesconto getDesconto() {
-    return desconto;
-  }
+	/**
+	 * Descontos aplicados à cobrança
+	 * 
+	 * @return desconto
+	 **/
+	@Schema(description = "Descontos aplicados à cobrança")
+	public DescontosAplicados getDesconto() {
+		return desconto;
+	}
 
-  public void setDesconto(AllOfCobVValorDesconto desconto) {
-    this.desconto = desconto;
-  }
+	public void setDesconto(DescontosAplicados desconto) {
+		this.desconto = desconto;
+	}
 
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		CobVValor cobVValor = (CobVValor) o;
+		return Objects.equals(this.original, cobVValor.original) && Objects.equals(this.multa, cobVValor.multa)
+				&& Objects.equals(this.juros, cobVValor.juros) && Objects.equals(this.abatimento, cobVValor.abatimento)
+				&& Objects.equals(this.desconto, cobVValor.desconto);
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CobVValor cobVValor = (CobVValor) o;
-    return Objects.equals(this.original, cobVValor.original) &&
-        Objects.equals(this.multa, cobVValor.multa) &&
-        Objects.equals(this.juros, cobVValor.juros) &&
-        Objects.equals(this.abatimento, cobVValor.abatimento) &&
-        Objects.equals(this.desconto, cobVValor.desconto);
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(original, multa, juros, abatimento, desconto);
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(original, multa, juros, abatimento, desconto);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class CobVValor {\n");
 
+		sb.append("    original: ").append(toIndentedString(original)).append("\n");
+		sb.append("    multa: ").append(toIndentedString(multa)).append("\n");
+		sb.append("    juros: ").append(toIndentedString(juros)).append("\n");
+		sb.append("    abatimento: ").append(toIndentedString(abatimento)).append("\n");
+		sb.append("    desconto: ").append(toIndentedString(desconto)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CobVValor {\n");
-    
-    sb.append("    original: ").append(toIndentedString(original)).append("\n");
-    sb.append("    multa: ").append(toIndentedString(multa)).append("\n");
-    sb.append("    juros: ").append(toIndentedString(juros)).append("\n");
-    sb.append("    abatimento: ").append(toIndentedString(abatimento)).append("\n");
-    sb.append("    desconto: ").append(toIndentedString(desconto)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

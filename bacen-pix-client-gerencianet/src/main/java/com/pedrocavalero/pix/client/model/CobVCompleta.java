@@ -29,8 +29,6 @@ import java.util.List;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-05-15T12:12:45.130232200-03:00[America/Sao_Paulo]")
 public class CobVCompleta extends CobVSolicitada {
-  @JsonProperty("devedor")
-  private Object devedor = null;
 
   @JsonProperty("recebedor")
   private Object recebedor = null;
@@ -88,24 +86,6 @@ public class CobVCompleta extends CobVSolicitada {
 
   @JsonProperty("pix")
   private List<Object> pix = null;
-
-  public CobVCompleta devedor(Object devedor) {
-    this.devedor = devedor;
-    return this;
-  }
-
-   /**
-   * O objeto devedor organiza as informações sobre o devedor da cobrança.
-   * @return devedor
-  **/
-  @Schema(required = true, description = "O objeto devedor organiza as informações sobre o devedor da cobrança.")
-  public Object getDevedor() {
-    return devedor;
-  }
-
-  public void setDevedor(Object devedor) {
-    this.devedor = devedor;
-  }
 
   public CobVCompleta recebedor(Object recebedor) {
     this.recebedor = recebedor;
@@ -277,7 +257,7 @@ public class CobVCompleta extends CobVSolicitada {
       return false;
     }
     CobVCompleta cobVCompleta = (CobVCompleta) o;
-    return Objects.equals(this.devedor, cobVCompleta.devedor) &&
+    return 
         Objects.equals(this.recebedor, cobVCompleta.recebedor) &&
         Objects.equals(this.loc, cobVCompleta.loc) &&
         Objects.equals(this.status, cobVCompleta.status) &&
@@ -291,7 +271,7 @@ public class CobVCompleta extends CobVSolicitada {
 
   @Override
   public int hashCode() {
-    return Objects.hash(devedor, recebedor, loc, status, valor, chave, solicitacaoPagador, infoAdicionais, pix, super.hashCode());
+    return Objects.hash(recebedor, loc, status, valor, chave, solicitacaoPagador, infoAdicionais, pix, super.hashCode());
   }
 
 
@@ -300,7 +280,6 @@ public class CobVCompleta extends CobVSolicitada {
     StringBuilder sb = new StringBuilder();
     sb.append("class CobVCompleta {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    devedor: ").append(toIndentedString(devedor)).append("\n");
     sb.append("    recebedor: ").append(toIndentedString(recebedor)).append("\n");
     sb.append("    loc: ").append(toIndentedString(loc)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

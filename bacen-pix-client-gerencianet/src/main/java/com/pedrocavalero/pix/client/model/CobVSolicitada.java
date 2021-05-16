@@ -30,7 +30,7 @@ import java.util.List;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-05-15T12:12:45.130232200-03:00[America/Sao_Paulo]")
 public class CobVSolicitada {
   @JsonProperty("devedor")
-  private Object devedor = null;
+  private DadosDevedor devedor = null;
 
   @JsonProperty("chave")
   private String chave = null;
@@ -46,8 +46,11 @@ public class CobVSolicitada {
 
   @JsonProperty("valor")
   private Object valor = null;
+  
+  @JsonProperty("calendario")
+  private CobDataDeVencimento calendario = null;
 
-  public CobVSolicitada devedor(Object devedor) {
+  public CobVSolicitada devedor(DadosDevedor devedor) {
     this.devedor = devedor;
     return this;
   }
@@ -57,11 +60,11 @@ public class CobVSolicitada {
    * @return devedor
   **/
   @Schema(required = true, description = "O objeto devedor organiza as informações sobre o devedor da cobrança.")
-  public Object getDevedor() {
+  public DadosDevedor getDevedor() {
     return devedor;
   }
 
-  public void setDevedor(Object devedor) {
+  public void setDevedor(DadosDevedor devedor) {
     this.devedor = devedor;
   }
 
@@ -164,7 +167,15 @@ public class CobVSolicitada {
   }
 
 
-  @Override
+  public CobDataDeVencimento getCalendario() {
+	return calendario;
+}
+
+public void setCalendario(CobDataDeVencimento calendario) {
+	this.calendario = calendario;
+}
+
+@Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
@@ -178,12 +189,13 @@ public class CobVSolicitada {
         Objects.equals(this.solicitacaoPagador, cobVSolicitada.solicitacaoPagador) &&
         Objects.equals(this.infoAdicionais, cobVSolicitada.infoAdicionais) &&
         Objects.equals(this.loc, cobVSolicitada.loc) &&
+        Objects.equals(this.calendario, cobVSolicitada.calendario) &&
         Objects.equals(this.valor, cobVSolicitada.valor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(devedor, chave, solicitacaoPagador, infoAdicionais, loc, valor);
+    return Objects.hash(calendario, devedor, chave, solicitacaoPagador, infoAdicionais, loc, valor);
   }
 
 
@@ -198,6 +210,7 @@ public class CobVSolicitada {
     sb.append("    infoAdicionais: ").append(toIndentedString(infoAdicionais)).append("\n");
     sb.append("    loc: ").append(toIndentedString(loc)).append("\n");
     sb.append("    valor: ").append(toIndentedString(valor)).append("\n");
+    sb.append("    calendario: ").append(toIndentedString(calendario)).append("\n");
     sb.append("}");
     return sb.toString();
   }

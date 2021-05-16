@@ -12,38 +12,79 @@
 
 package com.pedrocavalero.pix.client.model;
 
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * Descontos aplicados à cobrança
  */
 @Schema(description = "Descontos aplicados à cobrança")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-05-15T12:12:45.130232200-03:00[America/Sao_Paulo]")
-public class AllOfCobVValorDesconto {
+public class DescontosAplicados {
+
+	  @JsonProperty("modalidade")
+	  private Integer modalidade = null;
+	  @JsonProperty("valorPerc")
+	  private String valorPerc = null;
+	  @JsonProperty("descontoDataFixa")
+	  private List<DescontoDataFixa> descontoDataFixa = null;
+
+  public Integer getModalidade() {
+		return modalidade;
+	}
+
+	public void setModalidade(Integer modalidade) {
+		this.modalidade = modalidade;
+	}
+
+	public String getValorPerc() {
+		return valorPerc;
+	}
+
+	public void setValorPerc(String valorPerc) {
+		this.valorPerc = valorPerc;
+	}
+
+	public List<DescontoDataFixa> getDescontoDataFixa() {
+		return descontoDataFixa;
+	}
+
+	public void setDescontoDataFixa(List<DescontoDataFixa> descontoDataFixa) {
+		this.descontoDataFixa = descontoDataFixa;
+	}
+
+
+
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return true;
-  }
+	public int hashCode() {
+		return Objects.hash(descontoDataFixa, modalidade, valorPerc);
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash();
-  }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DescontosAplicados other = (DescontosAplicados) obj;
+		return Objects.equals(descontoDataFixa, other.descontoDataFixa) && Objects.equals(modalidade, other.modalidade)
+				&& Objects.equals(valorPerc, other.valorPerc);
+	}
 
-
-  @Override
+@Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AllOfCobVValorDesconto {\n");
-    
+    sb.append("class DescontosAplicados {\n");
+    sb.append("    modalidade: ").append(toIndentedString(modalidade)).append("\n");
+    sb.append("    valorPerc: ").append(toIndentedString(valorPerc)).append("\n");
+    sb.append("    descontoDataFixa: ").append(toIndentedString(descontoDataFixa)).append("\n");
+
     sb.append("}");
     return sb.toString();
   }

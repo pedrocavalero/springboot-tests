@@ -19,94 +19,149 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
+
 /**
  * CobDataDeVencimento
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-05-15T12:12:45.130232200-03:00[America/Sao_Paulo]")
 public class CobDataDeVencimento {
-  @JsonProperty("dataDeVencimento")
-  private LocalDate dataDeVencimento = null;
+	@JsonProperty("criacao")
+	private OffsetDateTime criacao = null;
 
-  @JsonProperty("validadeAposVencimento")
-  private Integer validadeAposVencimento = 30;
+	@JsonProperty("dataDeVencimento")
+	private LocalDate dataDeVencimento = null;
 
-  public CobDataDeVencimento dataDeVencimento(LocalDate dataDeVencimento) {
-    this.dataDeVencimento = dataDeVencimento;
-    return this;
-  }
+	@JsonProperty("validadeAposVencimento")
+	private Integer validadeAposVencimento = 30;
 
-   /**
-   * Trata-se de uma data, no formato &#x60;YYYY-MM-DD&#x60;, segundo ISO 8601. É a data de vencimento da cobrança. A cobrança pode ser honrada até esse dia, inclusive, em qualquer horário do dia.
-   * @return dataDeVencimento
-  **/
-  @Schema(example = "Tue Mar 31 21:00:00 BRT 2020", required = true, description = "Trata-se de uma data, no formato `YYYY-MM-DD`, segundo ISO 8601. É a data de vencimento da cobrança. A cobrança pode ser honrada até esse dia, inclusive, em qualquer horário do dia.")
-  public LocalDate getDataDeVencimento() {
-    return dataDeVencimento;
-  }
+	public CobDataDeVencimento dataDeVencimento(LocalDate dataDeVencimento) {
+		this.dataDeVencimento = dataDeVencimento;
+		return this;
+	}
 
-  public void setDataDeVencimento(LocalDate dataDeVencimento) {
-    this.dataDeVencimento = dataDeVencimento;
-  }
+	/**
+	 * Trata-se de uma data, no formato &#x60;YYYY-MM-DD&#x60;, segundo ISO 8601. É
+	 * a data de vencimento da cobrança. A cobrança pode ser honrada até esse dia,
+	 * inclusive, em qualquer horário do dia.
+	 * 
+	 * @return dataDeVencimento
+	 **/
+	@Schema(example = "Tue Mar 31 21:00:00 BRT 2020", required = true, description = "Trata-se de uma data, no formato `YYYY-MM-DD`, segundo ISO 8601. É a data de vencimento da cobrança. A cobrança pode ser honrada até esse dia, inclusive, em qualquer horário do dia.")
+	public LocalDate getDataDeVencimento() {
+		return dataDeVencimento;
+	}
 
-  public CobDataDeVencimento validadeAposVencimento(Integer validadeAposVencimento) {
-    this.validadeAposVencimento = validadeAposVencimento;
-    return this;
-  }
+	public void setDataDeVencimento(LocalDate dataDeVencimento) {
+		this.dataDeVencimento = dataDeVencimento;
+	}
 
-   /**
-   * Trata-se da quantidade de dias corridos após calendario.dataDeVencimento, em que a cobrança poderá ser paga.  Aplica-se este campo sobre o vencimento original da cobrança acrescentando-se o número de dias corridos nos quais a cobrança ainda poderá ser paga, após vencida. Este valor não se sobrepõe à possibilidade de pagamento em data posterior ao vencimento original por [força de lei](http://www.planalto.gov.br/ccivil_03/LEIS/L7089.htm). Nesse sentido, um vencimento determinado para um dia não útil deverá ser acatado no primeiro dia útil subsequente mesmo que exceda o número de dias definido neste campo.  Para ilustrar o funcionamento, seguem alguns exemplos:  Exemplo A:  &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-10-20, terça-feira. validadeAposVencimento: 4  Tenta-se pagar no dia 2020-10-23, sexta: aceito. Tenta-se pagar no dia 2020-10-24, sábado: aceito. Tenta-se pagar no dia 2020-10-25, domingo: negado. &#x60;&#x60;&#x60;  Exemplo B:  &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 0  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. &#x60;&#x60;&#x60;  Exemplo C:  &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 1  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. &#x60;&#x60;&#x60;  Exemplo D:  &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 3  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. &#x60;&#x60;&#x60;  Exemplo E:   &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 4  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: aceito. Tenta-se pagar no dia 2020-12-30, quarta: negado. &#x60;&#x60;&#x60; 
-   * @return validadeAposVencimento
-  **/
-  @Schema(description = "Trata-se da quantidade de dias corridos após calendario.dataDeVencimento, em que a cobrança poderá ser paga.  Aplica-se este campo sobre o vencimento original da cobrança acrescentando-se o número de dias corridos nos quais a cobrança ainda poderá ser paga, após vencida. Este valor não se sobrepõe à possibilidade de pagamento em data posterior ao vencimento original por [força de lei](http://www.planalto.gov.br/ccivil_03/LEIS/L7089.htm). Nesse sentido, um vencimento determinado para um dia não útil deverá ser acatado no primeiro dia útil subsequente mesmo que exceda o número de dias definido neste campo.  Para ilustrar o funcionamento, seguem alguns exemplos:  Exemplo A:  ```txt dataDeVencimento: 2020-10-20, terça-feira. validadeAposVencimento: 4  Tenta-se pagar no dia 2020-10-23, sexta: aceito. Tenta-se pagar no dia 2020-10-24, sábado: aceito. Tenta-se pagar no dia 2020-10-25, domingo: negado. ```  Exemplo B:  ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 0  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. ```  Exemplo C:  ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 1  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. ```  Exemplo D:  ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 3  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. ```  Exemplo E:   ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 4  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: aceito. Tenta-se pagar no dia 2020-12-30, quarta: negado. ``` ")
-  public Integer getValidadeAposVencimento() {
-    return validadeAposVencimento;
-  }
+	public CobDataDeVencimento validadeAposVencimento(Integer validadeAposVencimento) {
+		this.validadeAposVencimento = validadeAposVencimento;
+		return this;
+	}
 
-  public void setValidadeAposVencimento(Integer validadeAposVencimento) {
-    this.validadeAposVencimento = validadeAposVencimento;
-  }
+	/**
+	 * Trata-se da quantidade de dias corridos após calendario.dataDeVencimento, em
+	 * que a cobrança poderá ser paga. Aplica-se este campo sobre o vencimento
+	 * original da cobrança acrescentando-se o número de dias corridos nos quais a
+	 * cobrança ainda poderá ser paga, após vencida. Este valor não se sobrepõe à
+	 * possibilidade de pagamento em data posterior ao vencimento original por
+	 * [força de lei](http://www.planalto.gov.br/ccivil_03/LEIS/L7089.htm). Nesse
+	 * sentido, um vencimento determinado para um dia não útil deverá ser acatado no
+	 * primeiro dia útil subsequente mesmo que exceda o número de dias definido
+	 * neste campo. Para ilustrar o funcionamento, seguem alguns exemplos: Exemplo
+	 * A: &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-10-20, terça-feira.
+	 * validadeAposVencimento: 4 Tenta-se pagar no dia 2020-10-23, sexta: aceito.
+	 * Tenta-se pagar no dia 2020-10-24, sábado: aceito. Tenta-se pagar no dia
+	 * 2020-10-25, domingo: negado. &#x60;&#x60;&#x60; Exemplo B:
+	 * &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira, feriado.
+	 * validadeAposVencimento: 0 Tenta-se pagar no dia 2020-12-25, sexta: aceito.
+	 * Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia
+	 * 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda:
+	 * aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. &#x60;&#x60;&#x60;
+	 * Exemplo C: &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira,
+	 * feriado. validadeAposVencimento: 1 Tenta-se pagar no dia 2020-12-25, sexta:
+	 * aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no
+	 * dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda:
+	 * aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. &#x60;&#x60;&#x60;
+	 * Exemplo D: &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira,
+	 * feriado. validadeAposVencimento: 3 Tenta-se pagar no dia 2020-12-25, sexta:
+	 * aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no
+	 * dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda:
+	 * aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. &#x60;&#x60;&#x60;
+	 * Exemplo E: &#x60;&#x60;&#x60;txt dataDeVencimento: 2020-12-25, sexta-feira,
+	 * feriado. validadeAposVencimento: 4 Tenta-se pagar no dia 2020-12-25, sexta:
+	 * aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no
+	 * dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda:
+	 * aceito. Tenta-se pagar no dia 2020-12-29, terça: aceito. Tenta-se pagar no
+	 * dia 2020-12-30, quarta: negado. &#x60;&#x60;&#x60;
+	 * 
+	 * @return validadeAposVencimento
+	 **/
+	@Schema(description = "Trata-se da quantidade de dias corridos após calendario.dataDeVencimento, em que a cobrança poderá ser paga.  Aplica-se este campo sobre o vencimento original da cobrança acrescentando-se o número de dias corridos nos quais a cobrança ainda poderá ser paga, após vencida. Este valor não se sobrepõe à possibilidade de pagamento em data posterior ao vencimento original por [força de lei](http://www.planalto.gov.br/ccivil_03/LEIS/L7089.htm). Nesse sentido, um vencimento determinado para um dia não útil deverá ser acatado no primeiro dia útil subsequente mesmo que exceda o número de dias definido neste campo.  Para ilustrar o funcionamento, seguem alguns exemplos:  Exemplo A:  ```txt dataDeVencimento: 2020-10-20, terça-feira. validadeAposVencimento: 4  Tenta-se pagar no dia 2020-10-23, sexta: aceito. Tenta-se pagar no dia 2020-10-24, sábado: aceito. Tenta-se pagar no dia 2020-10-25, domingo: negado. ```  Exemplo B:  ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 0  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. ```  Exemplo C:  ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 1  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. ```  Exemplo D:  ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 3  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: negado. ```  Exemplo E:   ```txt dataDeVencimento: 2020-12-25, sexta-feira, feriado. validadeAposVencimento: 4  Tenta-se pagar no dia 2020-12-25, sexta: aceito. Tenta-se pagar no dia 2020-12-26, sábado: aceito. Tenta-se pagar no dia 2020-12-27, domingo: aceito. Tenta-se pagar no dia 2020-12-28, segunda: aceito. Tenta-se pagar no dia 2020-12-29, terça: aceito. Tenta-se pagar no dia 2020-12-30, quarta: negado. ``` ")
+	public Integer getValidadeAposVencimento() {
+		return validadeAposVencimento;
+	}
+
+	public void setValidadeAposVencimento(Integer validadeAposVencimento) {
+		this.validadeAposVencimento = validadeAposVencimento;
+	}
+
+	public CobDataDeVencimento criacao(OffsetDateTime criacao) {
+		this.criacao = criacao;
+		return this;
+	}
+
+	public OffsetDateTime getCriacao() {
+		return criacao;
+	}
+
+	public void setCriacao(OffsetDateTime criacao) {
+		this.criacao = criacao;
+	}
 
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CobDataDeVencimento cobDataDeVencimento = (CobDataDeVencimento) o;
-    return Objects.equals(this.dataDeVencimento, cobDataDeVencimento.dataDeVencimento) &&
-        Objects.equals(this.validadeAposVencimento, cobDataDeVencimento.validadeAposVencimento);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(dataDeVencimento, validadeAposVencimento);
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(criacao, dataDeVencimento, validadeAposVencimento);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CobDataDeVencimento other = (CobDataDeVencimento) obj;
+		return Objects.equals(criacao, other.criacao) && Objects.equals(dataDeVencimento, other.dataDeVencimento)
+				&& Objects.equals(validadeAposVencimento, other.validadeAposVencimento);
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CobDataDeVencimento {\n");
-    
-    sb.append("    dataDeVencimento: ").append(toIndentedString(dataDeVencimento)).append("\n");
-    sb.append("    validadeAposVencimento: ").append(toIndentedString(validadeAposVencimento)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class CobDataDeVencimento {\n");
+		sb.append("    criacao: ").append(toIndentedString(criacao)).append("\n");
+		sb.append("    dataDeVencimento: ").append(toIndentedString(dataDeVencimento)).append("\n");
+		sb.append("    validadeAposVencimento: ").append(toIndentedString(validadeAposVencimento)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }

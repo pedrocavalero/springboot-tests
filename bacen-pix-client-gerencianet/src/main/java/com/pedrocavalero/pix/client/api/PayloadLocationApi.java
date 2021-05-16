@@ -6,6 +6,7 @@ import org.threeten.bp.OffsetDateTime;
 import com.pedrocavalero.pix.client.model.PayloadLocation;
 import com.pedrocavalero.pix.client.model.PayloadLocationCompleta;
 import com.pedrocavalero.pix.client.model.PayloadLocationConsultadas;
+import com.pedrocavalero.pix.client.model.PayloadLocationQrCode;
 import com.pedrocavalero.pix.client.model.PayloadLocationSolicitada;
 import com.pedrocavalero.pix.client.model.Problema;
 

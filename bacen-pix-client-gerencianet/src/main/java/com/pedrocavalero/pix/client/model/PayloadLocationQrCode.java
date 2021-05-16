@@ -1,4 +1,4 @@
-package com.pedrocavalero.pix.client.api;
+package com.pedrocavalero.pix.client.model;
 
 import java.util.Objects;
 

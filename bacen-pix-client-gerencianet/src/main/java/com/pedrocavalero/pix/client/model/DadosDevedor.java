@@ -13,76 +13,137 @@
 package com.pedrocavalero.pix.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * DadosDevedor
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-05-15T12:12:45.130232200-03:00[America/Sao_Paulo]")
 public class DadosDevedor {
-  @JsonProperty("devedor")
-  private AllOfDadosDevedorDevedor devedor = null;
 
-  public DadosDevedor devedor(AllOfDadosDevedorDevedor devedor) {
-    this.devedor = devedor;
-    return this;
-  }
+	@JsonProperty("logradouro")
+	private String logradouro = null;
 
-   /**
-   * O objeto devedor organiza as informações sobre o devedor da cobrança.
-   * @return devedor
-  **/
-  @Schema(description = "O objeto devedor organiza as informações sobre o devedor da cobrança.")
-  public AllOfDadosDevedorDevedor getDevedor() {
-    return devedor;
-  }
+	@JsonProperty("cidade")
+	private String cidade = null;
 
-  public void setDevedor(AllOfDadosDevedorDevedor devedor) {
-    this.devedor = devedor;
-  }
+	@JsonProperty("uf")
+	private String uf = null;
 
+	@JsonProperty("cep")
+	private String cep = null;
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DadosDevedor dadosDevedor = (DadosDevedor) o;
-    return Objects.equals(this.devedor, dadosDevedor.devedor);
-  }
+	@JsonProperty("cpf")
+	private String cpf = null;
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(devedor);
-  }
+	@JsonProperty("nome")
+	private String nome = null;
 
+	@JsonProperty("cnpj")
+	private String cnpj = null;
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DadosDevedor {\n");
-    
-    sb.append("    devedor: ").append(toIndentedString(devedor)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	public String getLogradouro() {
+		return logradouro;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		DadosDevedor dadosDevedor = (DadosDevedor) o;
+		return Objects.equals(this.logradouro, dadosDevedor.logradouro)
+				&& Objects.equals(this.cidade, dadosDevedor.cidade) && Objects.equals(this.uf, dadosDevedor.uf)
+				&& Objects.equals(this.cep, dadosDevedor.cep) && Objects.equals(this.cpf, dadosDevedor.cpf)
+				&& Objects.equals(this.nome, dadosDevedor.nome) && Objects.equals(this.cnpj, dadosDevedor.cnpj);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(logradouro, cidade, uf, cep, cpf, nome, cnpj);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class DadosDevedor {\n");
+		sb.append("    logradouro: ").append(toIndentedString(logradouro)).append("\n");
+		sb.append("    cidade: ").append(toIndentedString(cidade)).append("\n");
+		sb.append("    uf: ").append(toIndentedString(uf)).append("\n");
+		sb.append("    cep: ").append(toIndentedString(cep)).append("\n");
+		sb.append("    cpf: ").append(toIndentedString(cpf)).append("\n");
+		sb.append("    nome: ").append(toIndentedString(nome)).append("\n");
+		sb.append("    cnpj: ").append(toIndentedString(cnpj)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
