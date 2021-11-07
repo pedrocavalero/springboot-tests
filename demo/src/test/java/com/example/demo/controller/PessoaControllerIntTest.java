@@ -29,7 +29,7 @@ class PessoaControllerIntTest {
 	
 	@Test
 	void testBuscaPorCpf() throws Exception {
-		when(pessoaService.buscaPorCpf("1")).thenReturn(List.of(new Pessoa("Pedro", "1")));
+		when(pessoaService.buscaPorCpf("1")).thenReturn(List.of(new Pessoa("Pedro", "1"))); 
 		mvc.perform(get("/pessoa/cpf/1")).andExpect(content().json("[{\"nome\":\"Pedro\",\"cpf\":\"1\"}]"));
 	}
 
