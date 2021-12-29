@@ -25,7 +25,7 @@ class Runner implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("Propriedade hello2: " + hello);
+		System.out.println("Propriedade hello: " + hello);
 	}
 	
 }
