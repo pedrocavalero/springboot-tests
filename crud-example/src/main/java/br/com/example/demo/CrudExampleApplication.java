@@ -1,4 +1,4 @@
-package com.example.demo;
+package br.com.example.demo;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -6,9 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.model.Person;
-import com.example.demo.repository.PersonRepository;
-
+import br.com.example.demo.model.Person;
+import br.com.example.demo.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 
 @SpringBootApplication
@@ -24,11 +23,13 @@ public class CrudExampleApplication {
 @AllArgsConstructor
 class Runner implements ApplicationRunner {
 
-	PersonRepository repository;
+	PersonRepository repository; //TODO terminar
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		repository.findByNomeContaining("1").forEach(System.out::println);
+		Person person = new Person(null, "Pedro", 41);
+		repository.save(person);
+		repository.findByNomeContaining("Pedro").forEach(System.out::println);
 		
 	}
 	
